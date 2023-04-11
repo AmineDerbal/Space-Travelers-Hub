@@ -11,8 +11,10 @@ const Rockets = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getRocketsData());
-  }, [dispatch, isFetched]);
+    if (rockets.length === 0) {
+      dispatch(getRocketsData());
+    }
+  }, [dispatch, isFetched, rockets.length]);
   if (isLoading) {
     return <Loader />;
   }
