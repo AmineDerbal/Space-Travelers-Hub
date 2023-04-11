@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import Badge from 'react-bootstrap/Badge';
 import { useDispatch } from 'react-redux';
-import { bookRocket } from '../redux/rockets/rocketsSlice';
+import { bookRocket, cancelBooking } from '../redux/rockets/rocketsSlice';
 import './styles/Rocket.css';
 
 const Rocket = ({ rocket }) => {
@@ -23,6 +23,9 @@ const Rocket = ({ rocket }) => {
         </p>
         {rocket.reserved && (
         <Button
+          onClick={() => {
+            dispatch(cancelBooking(rocket.id));
+          }}
           className="reserve-rocket"
           variant="outline-secondary"
         >
