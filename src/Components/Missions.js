@@ -10,8 +10,10 @@ const Missions = () => {
   const dispatch = useDispatch();
   const { missions, isLoading } = useSelector((store) => store.missions);
   useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch]);
+    if (missions.length === 0) {
+      dispatch(fetchMissions());
+    }
+  }, [dispatch, missions.length]);
   if (isLoading) {
     return <Loader />;
   }
