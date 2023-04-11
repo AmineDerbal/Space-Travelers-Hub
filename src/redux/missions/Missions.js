@@ -4,6 +4,7 @@ const missionUrl = 'https://api.spacexdata.com/v3/missions';
 
 const initialState = {
   missions: [],
+  isLoading: false,
 };
 
 export const fetchMissions = createAsyncThunk('mission/fetchmissions', async () => {
@@ -14,13 +15,33 @@ export const fetchMissions = createAsyncThunk('mission/fetchmissions', async () 
     name: mission.mission_name,
     description: mission.description,
   }));
-  console.log(missionList);
   return missionList;
 });
 const missionSlice = createSlice({
-  name: 'mission',
+  name: 'missions',
   initialState,
   reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchMissions.pending,
+      (state) => {
+        const isLoading = true;
+        return {
+          ...state,
+          isLoading,
+        };
+      });
+    builder.addCase(fetchMissions.fulfilled,
+      (state, action) => {
+        const isLoading = false;
+        const missions = action.payload;
+
+        return {
+          ...state,
+          missions,
+          isLoading,
+        };
+      });
+  },
 });
 
 export default missionSlice.reducer;
