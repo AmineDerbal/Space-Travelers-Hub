@@ -12,8 +12,17 @@ const initialState = {
 export const getRocketsData = createAsyncThunk('rockets/getRocketsData', async () => {
   try {
     const dataStream = await axios(rocketsUrl);
-    console.log(dataStream.data);
-    return dataStream.data;
+    const rockets = [];
+    dataStream.data.forEach((data) => {
+      rockets.push({
+        id: data.id,
+        name: data.name,
+        description: data.description,
+        image: data.flickr_images[0],
+      });
+    });
+    console.log('rockets', rockets);
+    return rockets;
   } catch (error) {
     return error;
   }
