@@ -10,14 +10,14 @@ const Navbar = () => (
     </div>
     <ul className="links">
       <li>
-        <NavLink exact to="/" activeClassName="active" style={{ textDecoration: 'none' }}>Rockets</NavLink>
+        <NavLink to="/">Rockets</NavLink>
       </li>
       <li>
-        <NavLink to="/missions" activeClassName="active" style={{ textDecoration: 'none' }}>Missions</NavLink>
+        <NavLink to="/missions">Missions</NavLink>
       </li>
       <span className="separator">|</span>
       <li>
-        <NavLink to="/myprofile" activeClassName="active" style={{ textDecoration: 'none' }}>My Profile</NavLink>
+        <NavLink to="/myprofile">My Profile</NavLink>
       </li>
     </ul>
   </nav>
