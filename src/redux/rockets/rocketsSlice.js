@@ -21,7 +21,6 @@ export const getRocketsData = createAsyncThunk('rockets/getRocketsData', async (
         image: data.flickr_images[0],
       });
     });
-    console.log('rockets', rockets);
     return rockets;
   } catch (error) {
     return error;
