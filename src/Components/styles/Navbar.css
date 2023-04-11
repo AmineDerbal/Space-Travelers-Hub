@@ -24,7 +24,11 @@
   gap: 1rem;
   color: blue;
 }
+.links a {
+  text-decoration: none;
+}
 
 .active {
+  text-decoration: underline;
   border-bottom: 2px solid blue;
 }
