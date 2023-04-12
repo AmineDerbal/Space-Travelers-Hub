@@ -7,7 +7,7 @@ import {
   screen, fireEvent,
 } from '@testing-library/react';
 import configureMockStore from 'redux-mock-store';
-import store from '../Redux/store';
+import store from '../redux/store';
 import Mission from '../Components/Mission';
 
 it('renders Missions correctly', () => {
